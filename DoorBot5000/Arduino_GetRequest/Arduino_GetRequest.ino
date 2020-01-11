@@ -4,7 +4,7 @@
 
 const char * ssid = "Dev DeltaR"; // replace with your wifi ssid and wpa2 key
 const char * pass = "dajnet66";
-const char * url = "http://office.divit.hr:3000/";
+const char * url = "http://office.divit.hr:3001/doorbot";
 
 WiFiClient client;
 
@@ -32,10 +32,12 @@ void loop() {
     int httpCode = http.GET();
     String payload = http.getString();
 
+    Serial.println("---------------------------------------------------------------------------------");
     Serial.println(httpCode);
     Serial.println(payload);
-
+    Serial.println("---------------------------------------------------------------------------------");
+    
     http.end();
 
-    delay(10000);
+    delay(1000);
 }
