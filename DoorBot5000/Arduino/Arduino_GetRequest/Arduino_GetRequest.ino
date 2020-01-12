@@ -73,5 +73,7 @@ int GetRequest(){
     }
     else if(payload == "YES"){
         return 1;
-    }    
+    }
+
+    return 0;
 }
