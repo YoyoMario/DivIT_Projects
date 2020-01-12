@@ -17,21 +17,12 @@ void setup() {
     Serial.begin(9600);
     delay(10);
 
-    Serial.println("Connecting to ");
-    Serial.println(ssid);
-
-    WiFi.begin(ssid, pass);
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print(".");
-    }
-    Serial.println("");
-    Serial.println("WiFi connected");
-    Serial.println("IP address: ");
-    Serial.println(WiFi.localIP());
+   // ConnectToWifi();    
 }
 
 void loop() {
+    ConnectToWifi();
+    
     //Gets buzzer status.
     int value = GetRequest();
 
@@ -43,6 +34,22 @@ void loop() {
     }
     
     delay(1000);
+}
+
+void ConnectToWifi(){
+    if(WiFi.status() != WL_CONNECTED){
+        WiFi.begin(ssid, pass);
+        Serial.println("Connecting to ");
+        Serial.println(ssid);
+        while (WiFi.status() != WL_CONNECTED) {
+            delay(500);
+            Serial.print(".");
+        }
+        Serial.println("");
+        Serial.println("WiFi connected");
+        Serial.println("IP address: ");
+        Serial.println(WiFi.localIP());
+    }
 }
 
 int GetRequest(){
