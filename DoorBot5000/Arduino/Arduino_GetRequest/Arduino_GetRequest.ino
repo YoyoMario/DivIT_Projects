@@ -2,7 +2,8 @@
 
 #include <ESP8266HTTPClient.h>
 
-const char * ssid = "Dev DeltaR"; // replace with your wifi ssid and wpa2 key
+//const char * ssid = "Dev DeltaR"; // replace with your wifi ssid and wpa2 key
+const char * ssid = "DivIToffice 2.4";
 const char * pass = "dajnet66";
 const char * url = "http://office.divit.hr:3001/doorbot";
 
